@@ -9,6 +9,13 @@
 };
 
 #root{
-  display: flex;
   height: 100vh;
+  display: flex;
+  
 }
+.app-container {
+  display: flex;
+  height: 100vh; /* Ensure it takes up the full height */
+  width: 100%;
+}
+
