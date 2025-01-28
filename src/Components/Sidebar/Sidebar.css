@@ -17,8 +17,8 @@
     cursor: pointer;
 }
 
-.sidebar .new_chat{
-    margin-top:  30px;
+.sidebar .new_chat {
+    margin-top: 30px;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -26,9 +26,43 @@
     background-color: #e6eaf1;
     border-radius: 50px;
     font-size: 14px;
-    color:gray ;
+    color: gray;
     cursor: pointer;
+    position: relative; /* Needed for pseudo-elements */
+    overflow: hidden;   /* Hide the animation overflow */
 }
+
+.sidebar .new_chat::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, #4b90ff, #ff5546);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    pointer-events: none; /* Avoid interaction */
+}
+
+.sidebar .new_chat:hover::before {
+    animation: flowing-light 2s infinite;
+    opacity: 1;
+}
+
+@keyframes flowing-light {
+    0% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
 
 .sidebar .recent{
 display: flex;
