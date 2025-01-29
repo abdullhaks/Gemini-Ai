@@ -87,7 +87,9 @@ const {onSent,recentPrompt,showResult,loading,resultData,setInput,input} = useCo
             <div>
               <img src={assets.gallery_icon} alt="" />
               <img src={assets.mic_icon} alt="" />
+              {input&&
               <img src={assets.send_icon} onClick={() => onSent()} alt="" />
+              }
             </div>
           </div>
 
